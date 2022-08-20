@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#EC3F09"
+            android:minHeight="?attr/actionBarSize">
+
+            <RelativeLayout
+                android:id="@+id/toolbarText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="casual"
+                    android:text="@string/simple_calc"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    tools:ignore="TextContrastCheck">
+
+                </TextView>
+
+            </RelativeLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <RelativeLayout
+        android:id="@+id/resultView"
+        android:layout_width="match_parent"
+        android:layout_height="191dp"
+        android:background="#FFFFFF"
+        android:gravity="bottom|end"
+        android:paddingStart="0dp"
+        android:paddingEnd="10dp">
+
+
+        <TextView
+            android:id="@+id/input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="0dp"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center_vertical|end"
+            android:maxLength="25"
+            android:textSize="30sp"
+            tools:ignore="TextContrastCheck">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/output"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/input"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="12dp"
+            android:fontFamily="serif"
+            android:gravity="bottom|end"
+            android:maxLength="35"
+            android:textColor="@color/black"
+            android:textSize="36sp"
+            tools:ignore="TextContrastCheck">
+
+        </TextView>
+
+    </RelativeLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/calcPad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/resultView"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp"
+        android:background="#302F2F"
+        android:paddingStart="2dp"
+        android:paddingTop="15dp"
+        android:paddingEnd="0dp">
+
+
+        <TextView
+            android:id="@+id/plusKey"
+            android:layout_width="51dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/btn_plus"
+            android:clickable="true"
+            android:contentDescription="@string/minus"
+            android:focusable="true"
+            android:gravity="center"
+            android:minWidth="32dp"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/minusKey"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="TextContrastCheck">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/minusKey"
+            android:layout_width="51dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/btn_minus"
+            android:clickable="true"
+            android:contentDescription="@string/plus"
+            android:focusable="true"
+            android:gravity="center"
+            android:minWidth="48dp"
+            android:textColor="#FFFFFF"
+            android:textSize="55sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/plusKey"
+            tools:ignore="TextContrastCheck">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/multiplyKey"
+            android:layout_width="51dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/btn_multiplication"
+            android:clickable="true"
+            android:contentDescription="@string/multi"
+            android:focusable="true"
+            android:gravity="center"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/minusKey"
+            tools:ignore="TextContrastCheck">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/divisionKey"
+            android:layout_width="51dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/btn_divide"
+            android:clickable="true"
+            android:contentDescription="@string/division"
+            android:focusable="true"
+            android:gravity="center"
+            android:minWidth="32dp"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/multiplyKey"
+            tools:ignore="TextContrastCheck">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/sevenKey"
+            style="@style/myTextview"
+            android:background="@drawable/btn_7"
+            android:clickable="true"
+            android:contentDescription="@string/_7"
+            android:focusable="true"
+            android:gravity="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TextContrastCheck">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/fourKey"
+            style="@style/myTextview"
+            android:background="@drawable/btn_4"
+            android:contentDescription="@string/_4"
+            android:gravity="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sevenKey"
+            tools:ignore="TextContrastCheck">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/oneKey"
+            style="@style/myTextview"
+            android:background="@drawable/btn_1"
+            android:contentDescription="@string/_1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fourKey"
+            tools:ignore="TextContrastCheck">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/delKey"
+            style="@style/myTextview"
+            android:background="@drawable/btn_del"
+            android:text="@string/del"
+            android:textSize="25sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/oneKey"
+            tools:ignore="TextContrastCheck">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/eightKey"
+            style="@style/myTextview"
+            android:layout_marginStart="180dp"
+            android:background="@drawable/btn_8"
+            android:contentDescription="@string/eight"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TextContrastCheck">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/fiveKey"
+            style="@style/myTextview"
+            android:layout_marginStart="180dp"
+            android:background="@drawable/btn_5"
+            android:contentDescription="@string/_5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/eightKey"
+            tools:ignore="TextContrastCheck">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/twoKey"
+            style="@style/myTextview"
+            android:layout_marginStart="180dp"
+            android:background="@drawable/btn_2"
+            android:contentDescription="@string/_2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fiveKey"
+            tools:ignore="TextContrastCheck">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/zeroKey"
+            style="@style/myTextview"
+            android:layout_marginStart="180dp"
+            android:background="@drawable/btn_0"
+            android:contentDescription="@string/_0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/twoKey"
+            tools:ignore="TextContrastCheck">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/nineKey"
+            style="@style/myTextview"
+            android:layout_marginStart="260dp"
+            android:background="@drawable/btn_9"
+            android:contentDescription="@string/_9"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TextContrastCheck">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/sixKey"
+            style="@style/myTextview"
+            android:layout_marginStart="260dp"
+            android:background="@drawable/btn_6"
+            android:contentDescription="@string/_6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nineKey"
+            tools:ignore="TextContrastCheck">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/threeKey"
+            style="@style/myTextview"
+            android:layout_marginStart="260dp"
+            android:background="@drawable/btn_3"
+            android:contentDescription="@string/_3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sixKey"
+            tools:ignore="TextContrastCheck">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/dotKey"
+            style="@style/myTextview"
+            android:layout_marginStart="260dp"
+            android:background="@drawable/btn_dot"
+            android:contentDescription="@string/dot"
+            android:textSize="30sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/threeKey"
+            tools:ignore="TextContrastCheck">
+
+        </TextView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/calcPad"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:background="#302F2F"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/equalKey"
+            android:layout_width="75dp"
+            android:layout_height="65dp"
+            android:layout_marginStart="55dp"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/btn_equal"
+            android:gravity="center_vertical">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/clrKey"
+            android:layout_width="75dp"
+            android:layout_height="65dp"
+            android:layout_marginStart="75dp"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/btn_ac"
+            android:gravity="center_vertical">
+
+        </TextView>
+
+    </LinearLayout>
+
+
+</RelativeLayout>
